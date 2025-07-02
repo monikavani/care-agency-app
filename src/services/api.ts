@@ -4,7 +4,7 @@ import { Carer, Client, Shift, mockDataService } from '@/lib/data';
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Simulate API errors
-const simulateError = () => Math.random() < 0.1;
+// const simulateError = () => Math.random() < 0.1;
 
 export interface ApiResponse<T> {
   data: T;
@@ -19,9 +19,10 @@ class ApiService {
   ): Promise<ApiResponse<T>> {
     await delay(delayMs);
     
-    if (simulateError()) {
-      throw new Error('Network error occurred. Please try again.');
-    }
+    // commented for smooth experience
+    // if (simulateError()) {
+    //   throw new Error('Network error occurred. Please try again.');
+    // }
     
     return {
       data: operation(),

@@ -53,7 +53,7 @@ export default function SchedulePage({ params }: { params: Promise<PageParams> }
   return (
     <div className="p-4">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-        <h1 className="text-2xl font-bold">{carer.name}'s Schedule</h1>
+        <h1 className="text-2xl font-bold">{carer.name}&apos;s Schedule</h1>
         <div className="flex gap-4">
           <Link href="/" className="text-primary-500 hover:underline flex items-center">
             ← Back to carers
