@@ -1,36 +1,163 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏥 Care Agency Management App
 
-## Getting Started
+A modern, responsive web application for care agencies to manage caregivers, clients, and scheduling. Built with Next.js 13+, React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## ✨ Features
 
+### Core Functionality
+- **Caregiver Management**: View all caregivers with contact information
+- **Client Management**: Track client details and addresses
+- **Shift Scheduling**: Create and manage care shifts
+- **Conflict Prevention**: Automatic detection of scheduling conflicts
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+
+### User Experience
+- **Loading States**: Professional loading indicators during data operations
+- **Error Handling**: User-friendly error messages with retry functionality
+- **Form Validation**: Real-time validation for shift creation
+- **Type Safety**: Full TypeScript implementation for reliability
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 13+ (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: React Context + useReducer
+- **Forms**: React Hook Form
+- **Mock Data**: Custom singleton service
+- **API Simulation**: Custom service with configurable delays
+
+## 📋 Prerequisites
+
+Before running this application, ensure you have:
+
+- **Node.js** 18.0 or higher
+- **npm** 9.0 or higher (or yarn/pnpm)
+- **Git** for version control
+
+### System Requirements
+- **Operating System**: macOS, Windows, or Linux
+- **Memory**: 4GB RAM minimum (8GB recommended)
+- **Storage**: 1GB free space
+- **Browser**: Modern browser with ES6+ support (Chrome, Firefox, Safari, Edge)
+
+## 🚀 Installation
+
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd care-agency-app
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### 3. Start Development Server
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Open Application
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗 Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Available Scripts
 
-## Learn More
+```bash
+# Start development server
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+# Build for production
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Start production server
+npm start
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Run TypeScript type checking
+npm run type-check
 
-## Deploy on Vercel
+# Run linting
+npm run lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Development Notes
+- **Mock Data**: The app uses simulated data with configurable delays (1-2 seconds)
+- **Type Checking**: TypeScript errors will show in the terminal and browser
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 Project Structure
+
+```
+src/
+├── app/                          # Next.js 13+ App Router
+│   ├── layout.tsx               # Root layout with providers
+│   ├── page.tsx                 # Home page (caregiver list)
+│   └── schedule/                # Schedule management
+│       └── [carerId]/           # Dynamic caregiver routes
+│           ├── page.tsx         # Individual caregiver schedule
+│           └── new/             # New shift creation
+│               └── page.tsx     # Shift creation form
+├── components/                   # Reusable UI components
+│   ├── ui/                      # UI component library
+│   │   ├── Button.tsx          # Reusable button component
+│   │   ├── FormField.tsx       # Form field wrapper
+│   │   ├── LoadingState.tsx    # Loading indicator
+│   │   └── ErrorState.tsx      # Error display
+│   ├── Spinner.tsx             # Loading spinner
+│   └── ClientOnly.tsx          # Client-side wrapper
+├── context/                     # State management
+│   └── ShiftContext.tsx        # Global state and API calls
+├── lib/                         # Utilities and data
+│   └── data.ts                 # Mock data service and types
+└── services/                    # API layer
+    └── api.ts                  # Mock API service
+```
+
+## 🤔 Assumptions
+
+### Business Logic Assumptions
+1. **Care Agency Model**: Single agency managing multiple caregivers and clients
+2. **Shift Scheduling**: One caregiver per shift, one client per shift
+3. **Time Zones**: All times are in the local timezone of the agency
+4. **Conflict Prevention**: Caregivers cannot have overlapping shifts
+5. **Data Persistence**: Currently using mock data 
+
+### Technical Assumptions
+1. **User Authentication**: Not implemented (assumes single-user or admin access)
+2. **Real-time Updates**: Not implemented (page refresh required for updates)
+3. **Data Validation**: Client-side validation
+4. **Mobile Usage**: Responsive design for mobile devices
+5. **Browser Support**: Modern browsers with ES6+ support
+
+### User Experience Assumptions
+1. **Primary Users**: Care agency administrators and schedulers
+2. **Workflow**: View caregivers → Select caregiver → View/manage schedule → Create shifts
+
+
+### Code Review Checklist
+- [ ] TypeScript types are properly defined
+- [ ] Components are reusable and well-documented
+- [ ] Error handling is implemented
+- [ ] Loading states are included
+- [ ] Responsive design is maintained
+- [ ] No console.log statements in production code
+
+
+
+
+
+
+
+---
+
+**Built with ❤️ for care agencies**
